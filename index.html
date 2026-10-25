@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigasi Halaman - Bento Grid</title>
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* RESET & BASE STYLES */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: #e6eaf4; /* Dark Navy Background */
+      color: #f8fafc;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+    }
+
+    header h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      background: purple;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    /* BENTO GRID LAYOUT */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.25rem;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    /* Responsive Grid Breakpoints */
+    @media (min-width: 640px) {
+      .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .bento-grid {
+        padding-top: 7rem;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 100px;
+      }
+    }
+
+    /* CARD STYLES */
+    .bento-card {
+      background: #6782af;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Card Hover Effects */
+    .bento-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 12px 30px -10px rgba(56, 189, 248, 0.25);
+    }
+
+    /* BENTO SPANNING CLASSES (Ukuran Kartu Bervariasi) */
+    @media (min-width: 1024px) {
+      .card-large {
+        grid-column: span 1;
+        grid-row: span 2;
+      }
+      .card-wide {
+        grid-column: span 1;
+        grid-row: span 0.5;
+      }
+      .card-tall {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+      .card-standard {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+    }
+
+    /* CARD INTERNAL CONTENT */
+    .card-icon {
+
+    }
+
+    .bento-card:hover .card-icon {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #38bdf8;
+    }
+
+    .card-footer i {
+      transition: transform 0.3s ease;
+    }
+
+    .bento-card:hover .card-footer i {
+      transform: translateX(5px);
+    }
+
+    /* BADGE TAG */
+    .badge {
+      align-self: flex-start;
+      background: rgba(56, 189, 248, 0.1);
+      color: #38bdf8;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- BENTO CONTAINER -->
+  <main class="bento-grid">
+
+    <!-- CARD 1: Large Feature (2x2) -->
+    <a href="./Uji Mandiri Bahasa Inggris/index.html" class="bento-card card-large">
+      <div>
+
+
+        <h2 class="card-title">Uji Mandiri Bahasa Inggris</h2>
+      </div>
+    </a>
+
+    <!-- CARD 2: Wide Feature (2x1) -->
+    <a href="./Bing TO1/index.html" class="bento-card card-wide">
+      <div>
+
+        <h2 class="card-title">Try Out 1 Bahasa Inggris</h2>
+
+      </div>
+    </a>
+
+    <!-- CARD 3: Standard (1x1) -->
+    <a href="./Bing TO2/index.html" class="bento-card card-wide">
+      <div>
+
+        <h2 class="card-title">Try Out 2 Bahasa Inggris</h2>
+
+      </div>
+    </a>
+
+    <!-- CARD 4: Standard (1x1) -->
+    <a href="./Bing TO3/index.html" class="bento-card card-wide">
+      <div>
+
+        <h2 class="card-title">Try Out 3 Bahasa Inggris</h2>
+
+      </div>
+    </a>
+
+    <!-- CARD 5: Tall Feature (1x2) -->
+    <a href="./Bing Pred1/index.html" class="bento-card card-tall">
+      <div>
+
+        <h2 class="card-title">Prediksi 1 Bahasa Inggris</h2>
+
+      </div>
+    </a>
+
+    <!-- CARD 6: Wide Feature (2x1) -->
+    <a href="./Bing Pred2/index.html" class="bento-card card-wide">
+      <div>
+
+
+        <h2 class="card-title">Prediksi 2 Bahasa Inggris</h2>
+
+      </div>
+    </a>
+
+    <!-- CARD 7: Standard (1x1) -->
+    <a href="./Bing Pred3/index.html" class="bento-card card-standard">
+      <div>
+
+        <h2 class="card-title">Prediksi 3 Bahasa Inggris</h2>
+
+      </div>
+    </a>
+
+  </main>
+
+</body>
+</html>
