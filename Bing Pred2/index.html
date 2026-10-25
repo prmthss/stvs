@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dokumen Gabungan</title>
+  <style>
+    /* Reset & Tata letak utama */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+        @media (max-width: 600px) {
+      .page-container {
+        width: 500px;
+        max-width: 600px;
+      }
+      body {
+        margin: 5rem;
+        width: 100%;
+        align-items: center;
+      }
+    }
+
+    /* Container untuk masing-masing halaman */
+    .page-container {
+      width: 550px;
+      height: 800px;
+      position: relative;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+
+    /* Loader sederhana saat memuat file */
+    .loading-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      font-family: sans-serif;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tempat halaman akan dimuat secara berurutan -->
+  <div id="document-wrapper"></div>
+
+  <script>
+    // Daftar file HTML yang ingin dimasukkan berurutan
+    const pageFiles = [
+      '5fa2d23b-43c0-4fbd-9290-e62d5d77cada.html',
+      '4bcf8575-935f-4ad5-8661-046a9c79c386.html',
+      '6e7f81ac-ac39-483d-aa42-194599ce5f35.html',
+      '613b3f7d-8c7d-4575-bec2-85187fa9b4b6.html',
+      'ecec3a7c-831a-47ed-8fe0-46e38306f05d.html',
+      'dcb6c136-92b6-450c-84cd-ec9af6108321.html',
+      'ac1b17ad-5227-4ad1-9736-327b200205b0.html',
+      
+      
+      'fa699474-9f56-4a69-929e-a286f84025dd.html',
+
+      
+      
+      '79e599cd-6128-478c-80c3-19c7286bd41e.html',
+      '76f23d0f-c19c-4053-a632-176923595da3.html',
+      
+      
+    ];
+
+    const wrapper = document.getElementById('document-wrapper');
+
+    async function loadPages() {
+      for (const file of pageFiles) {
+        // Buat pembungkus halaman
+        const pageDiv = document.createElement('div');
+        pageDiv.className = 'page-container';
+        pageDiv.innerHTML = `<div class="loading-placeholder">Memuat ${file}...</div>`;
+        wrapper.appendChild(pageDiv);
+
+        try {
+          const response = await fetch(file);
+          if (!response.ok) throw new Error(`Gagal memuat ${file}`);
+          const htmlText = await response.text();
+
+          // Parsing HTML untuk mengambil hanya bagian isi <body> dan <style>
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(htmlText, 'text/html');
+          
+          // Bersihkan container dan masukkan konten asli
+          pageDiv.innerHTML = doc.body.innerHTML;
+        } catch (error) {
+          console.error(error);
+          pageDiv.innerHTML = `<div class="loading-placeholder" style="color:red;">Gagal memuat ${file}</div>`;
+        }
+      }
+    }
+
+    loadPages();
+  </script>
+</body>
+</html>
