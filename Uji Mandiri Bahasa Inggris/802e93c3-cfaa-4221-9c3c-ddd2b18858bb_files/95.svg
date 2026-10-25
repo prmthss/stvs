@@ -1,0 +1,24 @@
+<svg viewBox="0 0 909 1286" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<clipPath id="c0_95"><path d="M.3 1210.1V1169H788.4v41.1Zm869.3 0V1169h40.2v41.1Z"/></clipPath>
+<clipPath id="c1_95"><path d="M787.8 1215.1v-5.6h82.4v5.6Zm0-45.5v-7.1h82.4v7.1Z"/></clipPath>
+<clipPath id="c2_95"><path d="M787.8 1210.1V1169h82.4v41.1Z"/></clipPath>
+<style>
+.g0_95{fill:#DBDEDB;}
+.g1_95{fill:none;stroke:#CDCCCB;stroke-width:0.19;stroke-miterlimit:10;}
+</style>
+<path id="f1_5" transform="scale(0.001 -0.001)" d="M1123 112V993H238V112ZM128 0V1105H1233V0Z"/>
+</defs>
+<image clip-path="url(#c0_95)" preserveAspectRatio="none" x="0" y="1169" width="910" height="41" href="img/1.jpg"/>
+<image clip-path="url(#c1_95)" preserveAspectRatio="none" x="788" y="1162" width="82" height="53" href="img/2.jpg"/>
+<image clip-path="url(#c2_95)" preserveAspectRatio="none" x="788" y="1169" width="82" height="41" href="img/3.jpg"/>
+<path d="M95.4 349.9H827.1v-235H95.4v235Z" class="g0_95"/>
+<path d="M95.3 114.9H827.2M95.3 349.8H827.2m-731.8 0V115M827.1 349.8V115" class="g1_95"/>
+<g fill="#231F20">
+<use href="#f1_5" transform="matrix(10.6 0 0 10.5 125.6 751.2)"/>
+<use href="#f1_5" transform="matrix(10.5 0 0 10.5 125.6 794.1)"/>
+<use href="#f1_5" transform="matrix(10.5 0 0 10.5 125.6 836)"/>
+<use href="#f1_5" transform="matrix(10.6 0 0 10.5 125.6 877.9)"/>
+<use href="#f1_5" transform="matrix(10.5 0 0 10.5 125.6 919.8)"/>
+</g>
+</svg>

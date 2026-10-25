@@ -1,0 +1,20 @@
+<svg viewBox="0 0 909 1286" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<clipPath id="c0_102"><path d="M-.1 1210.1V1169H39.7v41.1Zm121 0V1169H909.1v41.1Z"/></clipPath>
+<clipPath id="c1_102"><path d="M121.5 1215.1H39.1v-5.6h82.4v5.6Zm-82.4-45.5v-7.1h82.4v7.1Z"/></clipPath>
+<clipPath id="c2_102"><path d="M39.1 1210.1V1169h82.4v41.1Z"/></clipPath>
+<clipPath id="c3_102"><path d="M82 778.8V142.1H814.5V778.8Z"/></clipPath>
+<path id="f1_5" transform="scale(0.001 -0.001)" d="M1123 112V993H238V112ZM128 0V1105H1233V0Z"/>
+</defs>
+<image clip-path="url(#c0_102)" preserveAspectRatio="none" x="0" y="1169" width="909" height="41" href="img/1.jpg"/>
+<image clip-path="url(#c1_102)" preserveAspectRatio="none" x="38" y="1162" width="84" height="53" href="img/2.jpg"/>
+<image clip-path="url(#c2_102)" preserveAspectRatio="none" x="39" y="1169" width="83" height="41" href="img/3.jpg"/>
+<image clip-path="url(#c3_102)" preserveAspectRatio="none" x="82" y="142" width="733" height="636" href="img/4.jpg"/>
+<g fill="#231F20">
+<use href="#f1_5" transform="matrix(10.5 0 0 10.5 112.6 913.5)"/>
+<use href="#f1_5" transform="matrix(10.5 0 0 10.5 112.6 935.5)"/>
+<use href="#f1_5" transform="matrix(10.5 0 0 10.5 112.6 957.6)"/>
+<use href="#f1_5" transform="matrix(10.5 0 0 10.5 112.6 979.6)"/>
+<use href="#f1_5" transform="matrix(10.5 0 0 10.5 112.6 1001.6)"/>
+</g>
+</svg>

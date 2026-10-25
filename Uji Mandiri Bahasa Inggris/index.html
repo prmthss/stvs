@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dokumen Gabungan</title>
+  <style>
+    /* Reset & Tata letak utama */
+    body {
+      margin: 0;
+      padding: 10px;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+
+        @media (max-width: 600px) {
+      .page-container {
+        width: 500px;
+        max-width: 600px;
+      }
+      body {
+        margin: 5rem;
+        width: 100%;
+        align-items: center;
+      }}
+
+    /* Container untuk masing-masing halaman */
+    .page-container {
+      width: 550px;
+      height: 800px;
+      position: relative;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+	.text-container {
+		color: white;
+	}
+
+    /* Loader sederhana saat memuat file */
+    .loading-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      font-family: sans-serif;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tempat halaman akan dimuat secara berurutan -->
+  <div id="document-wrapper"></div>
+
+  <script>
+    // Daftar file HTML yang ingin dimasukkan berurutan
+    const pageFiles = [
+      '23d9ca65-7e59-453f-a8c9-90a43000d1ce.html', // Hal 78
+      '27768518-31de-4287-ac10-9e334f67de4f.html', // Hal 79
+      '5f195460-186f-4e73-83c5-a879e2237462.html', // Hal 80
+      '4d200df7-d8de-48df-b38b-2f034f7376fe.html', // Hal 81
+      '38e6861b-63d9-493c-9068-d8099841bd22.html', // Hal 84
+      'b3ecc7de-191e-4c6f-8530-13b179ed741c.html', // Hal 85
+      '13a85059-1680-4fe8-9a97-d6f22f505340.html', // Hal 86
+      'b35b77b6-1d78-41d8-9b94-8182eef9ab74.html',// Halaman disisipkan
+      '802e93c3-cfaa-4221-9c3c-ddd2b18858bb.html', // Hal 87
+      '6dcdd2d2-084d-4383-bc29-67a6ef8c8794.html'  // Hal 88
+    ];
+
+    const wrapper = document.getElementById('document-wrapper');
+
+    async function loadPages() {
+      for (const file of pageFiles) {
+        // Buat pembungkus halaman
+        const pageDiv = document.createElement('div');
+        pageDiv.className = 'page-container';
+        pageDiv.innerHTML = `<div class="loading-placeholder">Memuat ${file}...</div>`;
+        wrapper.appendChild(pageDiv);
+
+        try {
+          const response = await fetch(file);
+          if (!response.ok) throw new Error(`Gagal memuat ${file}`);
+          const htmlText = await response.text();
+
+          // Parsing HTML untuk mengambil hanya bagian isi <body> dan <style>
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(htmlText, 'text/html');
+          
+          // Bersihkan container dan masukkan konten asli
+          pageDiv.innerHTML = doc.body.innerHTML;
+        } catch (error) {
+          console.error(error);
+          pageDiv.innerHTML = `<div class="loading-placeholder" style="color:red;">Gagal memuat ${file}</div>`;
+        }
+      }
+    }
+
+    loadPages();
+  </script>
+</body>
+</html>
